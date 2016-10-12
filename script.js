@@ -5,6 +5,8 @@ const play = document.getElementById('play');
 const pause = document.getElementById('pause');
 const time = document.getElementsByClassName('time')[0];
 const currentSong = document.getElementsByClassName('now-playing')[0];
+const c = document.getElementById('myCanvas');
+const ctx = c.getContext('2d');
 
 const helpers = {
 
@@ -37,8 +39,6 @@ const helpers = {
 
 
 
-const c = document.getElementById('myCanvas');
-const ctx = c.getContext('2d');
 
 class Player {
     constructor(audio, sources) {
@@ -103,3 +103,7 @@ pause.addEventListener('click', () => {
 });
 
 setInterval(() => createdPlayer.showTime(), 40);
+
+c.onclick = function(){
+    console.log(this);
+}
