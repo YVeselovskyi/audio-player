@@ -1,0 +1,105 @@
+.demo-blog .prev-button,
+.demo-blog .play-button,
+.demo-blog .next-button {
+    width: 44px;
+    height: 44px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    border-radius: 22px;
+    background-color: #F5F5F5;
+    cursor: pointer;
+}
+
+.demo-blog .prev-button {
+    background-image: url(img/prev.svg);
+}
+
+.demo-blog .play-button {
+    background-image: url(img/play.svg);
+}
+
+.demo-blog .next-button {
+    background-image: url(img/next.svg);
+}
+
+.demo-blog .meta > * {
+    flex-direction: row;
+}
+
+.demo-blog .mdl-card__media:first-child {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.demo-blog .mdl-card__media:first-child {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.demo-blog .mdl-card__media:nth-child(2) {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-height: 360px;
+    overflow-y: auto;
+}
+
+.mdl-progress {
+    width: 400px;
+    top: 19px;
+}
+
+.current-time {
+    position: absolute;
+    left: 151px;
+    top: 329px;
+}
+
+.time-left {
+    position: relative;
+    top: 27px;
+    right: 32px;
+}
+
+.volume {
+	width: 200px;
+    position: absolute;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -ms-align-items: center;
+    align-items: center;
+    right: -21px;
+    bottom: 50px;
+}
+
+.volume__level {
+    width: 24px;
+    height: 24px;
+/*    margin-left: 14px;*/
+    border: 0;
+    opacity: .5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    background: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(img/volume.svg);
+    position: absolute;
+    left: -5px;
+}
+

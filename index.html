@@ -9,36 +9,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <p>Hello world! This is HTML5 Boilerplate.</p>
-    <audio id="current" src="TheNeighbourhood.mp3" autobuffer autoloop loop></audio>
-    
-	<div class="now-playing">
-		
-	</div>
-
-
-    <div class="play-song">
-        <button id="play">Play</button>
+    <div class="container">
+        <div class="player">
+            <audio id="current" src="TheNeighbourhood.mp3" autobuffer autoloop loop></audio>
+            <div class="now-playing">
+                <div class="artist-name">Placebo</div>
+                <div class="song-name">Every me every you</div>
+            </div>
+            <div class="play-song">
+                <a href="#" id="play">Play</a>
+            </div>
+            <div class="next-song">
+                <a href="#" id="next">Next</a>
+            </div>
+            <div class="prev-song">
+                <a href="#" id="prev">Prev</a>
+            </div>
+            <div class="pause-song">
+                <a href="#" id="pause">Pause</a>
+            </div>
+            <div class="time">
+            </div>
+        </div>
     </div>
-    <div class="next-song">
-        <button id="next">Next</button>
-    </div>
-    <div class="prev-song">
-        <button id="prev">Prev</button>
-    </div>
-    <div class="pause-song">
-        <button id="pause">Pause</button>
-    </div>
-	
-	<div class="time">
-		
-	</div>
-
-	<canvas id="myCanvas" width="500" height="500"></canvas>
-
     <script src="script.js" type="text/javascript" charset="utf-8"></script>
 </body>
 

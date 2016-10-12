@@ -5,15 +5,9 @@ const play = document.getElementById('play');
 const pause = document.getElementById('pause');
 const time = document.getElementsByClassName('time')[0];
 const currentSong = document.getElementsByClassName('now-playing')[0];
-const c = document.getElementById('myCanvas');
-const ctx = c.getContext('2d');
 
 const helpers = {
 
-    degToRad: function(degree) {
-        var factor = Math.PI / 180;
-        return degree * factor;
-    },
 
     formatTime: function(secs, format) {
         let hr = Math.floor(secs / 3600);
@@ -35,8 +29,6 @@ const helpers = {
     }
 
 }
-
-
 
 
 
@@ -71,27 +63,24 @@ class Player {
 
     showTime() {
         let timeStamp = this.audio.currentTime;
-        time.innerHTML = `${helpers.formatTime(Math.ceil(timeStamp))}`;
-        if (timeStamp != 0) {
-            ctx.beginPath();
-            ctx.arc(250, 250, 200, helpers.degToRad(270), helpers.degToRad((this.audio.currentTime * 6) - 90));
-            ctx.stroke();
-        }
-
+        time.innerHTML = helpers.formatTime(Math.ceil(timeStamp));
     }
 
-    // startProgress() {
-    // }
+    rewind() {
+        console.log(this.audio.currentTime);
+    }
 
 }
 
 const createdPlayer = new Player(audioSong, ['TheNeighbourhood.mp3', 'Blame.mp3']);
 
 nextSong.addEventListener('click', () => {
+    createdPlayer.audio.currentTime = 0;
     createdPlayer.nextTrack();
 });
 
 prevSong.addEventListener('click', () => {
+    createdPlayer.audio.currentTime = 0;
     createdPlayer.prevTrack();
 });
 
@@ -104,6 +93,17 @@ pause.addEventListener('click', () => {
 
 setInterval(() => createdPlayer.showTime(), 40);
 
-c.onclick = function(){
-    console.log(this);
-}
+
+Array.prototype.forEach.call(document.querySelectorAll('.mdl-card__media'), function(el) {
+    var link = el.querySelector('a');
+    if (!link) {
+        return;
+    }
+    var target = link.getAttribute('href');
+    if (!target) {
+        return;
+    }
+    el.addEventListener('click', function() {
+        location.href = target;
+    });
+});
