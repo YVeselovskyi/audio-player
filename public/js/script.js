@@ -1,16 +1,3 @@
-const progress = document.getElementById('progress-bar');
-const audioSong = document.getElementById('current');
-const nextSong = document.getElementById('next');
-const prevSong = document.getElementById('prev');
-const play = document.getElementById('play');
-const playSelector = document.getElementsByClassName('play-button')[0];
-const time = document.getElementsByClassName('current-time')[0];
-const leftTime = document.getElementsByClassName('time-left')[0];
-const songAuthor = document.getElementById('song-author');
-const songName = document.getElementById('song-name');
-const volume = document.getElementById('volume-bar');
-const trackList = document.getElementsByClassName('tracklist')[0];
-
 const requestSongs = () => {
 
     return new Promise((resolve, reject) => {
@@ -35,6 +22,19 @@ const requestSongs = () => {
 };
 
 function generateAll(songsArray) {
+
+    const progress = document.getElementById('progress-bar');
+    const audioSong = document.getElementById('current');
+    const nextSong = document.getElementById('next');
+    const prevSong = document.getElementById('prev');
+    const play = document.getElementById('play');
+    const playSelector = document.getElementsByClassName('play-button')[0];
+    const time = document.getElementsByClassName('current-time')[0];
+    const leftTime = document.getElementsByClassName('time-left')[0];
+    const songAuthor = document.getElementById('song-author');
+    const songName = document.getElementById('song-name');
+    const volume = document.getElementById('volume-bar');
+    const trackList = document.getElementsByClassName('tracklist')[0];
 
     songsArray.forEach((i) => {
         let song = document.createElement('li');
@@ -120,10 +120,10 @@ function generateAll(songsArray) {
         showTime() {
             let timeStamp = this.audio.currentTime;
             time.innerHTML = helpers.formatTime(Math.ceil(timeStamp));
-            if(this.audio.duration){
+            if (this.audio.duration) {
                 leftTime.innerHTML = helpers.formatTime(Math.ceil(this.audio.duration));
             } else {
-                leftTime.innerHTML = '-4:20';
+                leftTime.innerHTML = '0:00';
             }
 
             this.currentValue = 100 * this.audio.currentTime / this.audio.duration;
@@ -198,8 +198,8 @@ requestSongs()
     .then((result) => generateAll(result))
     .catch((err) => console.log(err))
 
-function hideLoader(){
+function hideLoader() {
     document.getElementsByClassName('preloader-bg')[0].classList.add('hidden-fade');
 }
 
-setTimeout(hideLoader , 2000);
+setTimeout(hideLoader, 2000);
