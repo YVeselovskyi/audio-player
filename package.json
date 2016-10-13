@@ -1,22 +1,22 @@
 {
-  "name": "audio-player",
-  "version": "0.0.1",
-  "description": "Audio Player",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/YVeselovskyi/audio-player.git"
-  },
-  "author": "Yaroslav Veselovskyi",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/YVeselovskyi/audio-player/issues"
-  },
-  "homepage": "https://github.com/YVeselovskyi/audio-player#readme",
-  "dependencies": {
-    "express": "^4.14.0"
-  }
+    "name": "audio-player",
+    "version": "0.0.1",
+    "description": "Audio Player",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YVeselovskyi/audio-player.git"
+    },
+    "author": "Yaroslav Veselovskyi",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/YVeselovskyi/audio-player/issues"
+    },
+    "homepage": "https://github.com/YVeselovskyi/audio-player#readme",
+    "dependencies": {
+        "express": "^4.14.0"
+    }
 }

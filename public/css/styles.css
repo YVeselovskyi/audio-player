@@ -439,8 +439,11 @@ body .demo-blog {
           flex-grow: 1;
 }
 .demo-blog .something-else {
-  overflow: visible;
+  overflow: auto;
   z-index: 10;
+  max-height: 360px;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 .demo-blog .amazing .mdl-card__title {
   background-color: #263238;

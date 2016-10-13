@@ -32,9 +32,9 @@
             <div class="demo-blog__posts mdl-grid">
                 <div class="mdl-card coffee-pic mdl-cell mdl-cell--8-col">
                     <div class="mdl-card__media mdl-color-text--grey-50">
-                        <audio id="current" src="songs/TheNeighbourhood-How.mp3" autobuffer autoloop loop></audio>
-                        <h3><a href="#" id="song-author">Placebo</a></h3>
-                        <h3><a href="#" id="song-name">Every you and Every me</a></h3>
+                        <audio id="current" src="songs/DiploZedsDead-Blame.mp3" autobuffer autoloop loop></audio>
+                        <h3><a href="#" id="song-author">DiploZedsDead</a></h3>
+                        <h3><a href="#" id="song-name">Blame</a></h3>
                     </div>
                     <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
                         <div>
@@ -42,25 +42,20 @@
                             <div class="play-button" id="play"></div>
                             <div class="next-button" id="next"></div>
                             <div class="progress">
-                                <input class="mdl-slider mdl-js-slider" type="range" value="50" min="0" max="100" value="0" tabindex="0">
+                                <input id="progress-bar" class="mdl-slider mdl-js-slider" type="range" value="1" min="0" max="100" step="1" tabindex="0">
                             </div>
-                            <div class="current-time">0:01</div>
+                            <div class="current-time">0:00</div>
                             <div class="time-left">-4:20</div>
                             <div class="volume">
                                 <div class="volume__level" id="volume-level"></div>
-                                <input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="25" tabindex="0">
+                                <input class="mdl-slider mdl-js-slider" id="volume-bar" type="range" min="0" max="100" value="25" tabindex="0">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop">
-                    <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent">
-                        <i class="material-icons mdl-color-text--white" role="presentation">add</i>
-                        <span class="visuallyhidden">add</span>
-                    </button>
                     <div class="mdl-card__media mdl-color--white mdl-color-text--grey-600">
-                        <ul>
-                            <li>Song 1</li>
+                        <ul class="tracklist">
                         </ul>
                     </div>
                 </div>
@@ -89,6 +84,8 @@
     </div>
     <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
     <script src="js/script.js"></script>
+
+
 </body>
 
 </html>
