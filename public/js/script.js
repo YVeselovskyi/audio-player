@@ -1,9 +1,10 @@
+const progress = document.getElementById('progress-bar');
 const audioSong = document.getElementById('current');
 const nextSong = document.getElementById('next');
 const prevSong = document.getElementById('prev');
 const play = document.getElementById('play');
 const playSelector = document.getElementsByClassName('play-button')[0];
-const time = document.getElementsByClassName('time')[0];
+const time = document.getElementsByClassName('current-time')[0];
 const songAuthor = document.getElementById('song-author');
 const songName = document.getElementById('song-name');
 
@@ -65,10 +66,12 @@ class Player {
     showTime() {
         let timeStamp = this.audio.currentTime;
         time.innerHTML = helpers.formatTime(Math.ceil(timeStamp));
+        progress.MaterialProgress.setProgress(100 * this.audio.currentTime / this.audio.duration);
+
     }
 
     rewind() {
-        console.log(this.audio.currentTime);
+        console.log(progress.MaterialProgress.progressbar_.style.width);
     }
 
 }
@@ -84,8 +87,8 @@ prevSong.addEventListener('click', () => {
 });
 
 play.addEventListener('click', () => {
-    songAuthor.innerHTML =  helpers.formatSource(createdPlayer.audio.src).split('-')[0];
-    songName.innerHTML =  helpers.formatSource(createdPlayer.audio.src).split('-')[1];
+    songAuthor.innerHTML = helpers.formatSource(createdPlayer.audio.src).split('-')[0];
+    songName.innerHTML = helpers.formatSource(createdPlayer.audio.src).split('-')[1];
     if (createdPlayer.inPlay == false) {
         createdPlayer.inPlay = true;
         playSelector.classList.remove('play-button');
@@ -100,5 +103,11 @@ play.addEventListener('click', () => {
 
 });
 
+progress.addEventListener('mousemove', (e) => {
+    let relX = event.pageX - progress.offsetLeft;
+    let relY = event.pageY - progress.offsetTop;
+    console.log(relX);
+    //createdPlayer.rewind();
+});
 
-setInterval(() => createdPlayer.showTime(), 1000);
+setInterval(() => createdPlayer.showTime(), 500);

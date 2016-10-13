@@ -42,7 +42,7 @@
                             <div class="play-button" id="play"></div>
                             <div class="next-button" id="next"></div>
                             <div class="progress">
-                                <div id="p1" class="mdl-progress mdl-js-progress"></div>
+                                <div id="progress-bar" class="mdl-progress mdl-js-progress"></div>
                             </div>
                             <div class="current-time">0:01</div>
                             <div class="time-left">-4:20</div>
@@ -89,11 +89,6 @@
     </div>
     <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
     <script src="js/script.js"></script>
-    <script>
-    document.querySelector('#p1').addEventListener('mdl-componentupgraded', function() {
-        this.MaterialProgress.setProgress(44);
-    });
-    </script>
 </body>
 
 </html>

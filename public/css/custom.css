@@ -64,6 +64,7 @@
 .mdl-progress {
     width: 400px;
     top: 19px;
+    left: 10px;
 }
 
 .current-time {
@@ -75,7 +76,7 @@
 .time-left {
     position: relative;
     top: 27px;
-    right: 32px;
+    right: 14px;
 }
 
 .volume {
