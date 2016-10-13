@@ -43,7 +43,7 @@ function generateAll(songsArray) {
     // Make song list with elements having unique id
     songsArray.forEach((i) => {
         let song = document.createElement('li');
-        song.innerHTML = `${i.slice(0, -4)}<div id=${i} class="hidden loading-pulse"></div>`;
+        song.innerHTML = `${i.slice(0, -4).replace(/-/,' - ')}<div id=${i} class="hidden loading-pulse"></div>`;
         trackList.appendChild(song);
     });
 
@@ -148,7 +148,7 @@ function generateAll(songsArray) {
             playSelector.classList.add('pause-button');
             let src = helpers.formatSource(this.audio.src);
             document.getElementById(src).classList.add('hidden');
-            this.audio.src = `songs/${e.innerHTML.split('<')[0]}.mp3`;
+            this.audio.src = `songs/${e.innerHTML.split('<')[0].replace(/ - /, '-')}.mp3`;
             let newSrc = helpers.formatSource(this.audio.src);
             document.getElementById(newSrc).classList.remove('hidden');
             this.generateView();
