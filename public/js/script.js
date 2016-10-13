@@ -1,3 +1,5 @@
+// Requesting song names from filesystem
+
 const requestSongs = () => {
 
     return new Promise((resolve, reject) => {
@@ -21,6 +23,8 @@ const requestSongs = () => {
     });
 };
 
+//If request is ok generate all stuff
+
 function generateAll(songsArray) {
 
     const progress = document.getElementById('progress-bar');
@@ -36,28 +40,24 @@ function generateAll(songsArray) {
     const volume = document.getElementById('volume-bar');
     const trackList = document.getElementsByClassName('tracklist')[0];
 
+    // Make song list with elements having unique id
     songsArray.forEach((i) => {
         let song = document.createElement('li');
         song.innerHTML = `${i.slice(0, -4)}<div id=${i} class="hidden loading-pulse"></div>`;
         trackList.appendChild(song);
     });
 
+    // Helper functions
     const helpers = {
-
-
         formatTime: function(secs, format) {
             let hr = Math.floor(secs / 3600);
             let min = Math.floor((secs - (hr * 3600)) / 60);
             let sec = Math.floor(secs - (hr * 3600) - (min * 60));
-
             if (sec < 10) {
                 sec = '0' + sec;
             }
-
             return min + ':' + sec;
         },
-
-
         formatSource: function(elem) {
             elem = elem.split('/');
             elem = elem[elem.length - 1];
@@ -66,6 +66,7 @@ function generateAll(songsArray) {
 
     }
 
+    // Main player class
     class Player {
         constructor(audio, sources) {
             this.audio = audio;
@@ -82,6 +83,7 @@ function generateAll(songsArray) {
         playAudio() {
             let songName = helpers.formatSource(this.audio.src);
             document.getElementById(songName).classList.remove('hidden');
+            this.generateView();
             this.audio.play();
         }
 
@@ -141,6 +143,9 @@ function generateAll(songsArray) {
         }
 
         changeTrack(e) {
+            this.inPlay = true;
+            playSelector.classList.remove('play-button');
+            playSelector.classList.add('pause-button');
             let src = helpers.formatSource(this.audio.src);
             document.getElementById(src).classList.add('hidden');
             this.audio.src = `songs/${e.innerHTML.split('<')[0]}.mp3`;
@@ -171,12 +176,10 @@ function generateAll(songsArray) {
     });
 
     play.addEventListener('click', () => {
-        songAuthor.innerHTML = helpers.formatSource(createdPlayer.audio.src).split('-')[0];
-        songName.innerHTML = helpers.formatSource(createdPlayer.audio.src).split('-')[1].slice(0, -4);
         if (createdPlayer.inPlay == false) {
             createdPlayer.inPlay = true;
             playSelector.classList.remove('play-button');
-            playSelector.classList.add('pause-button')
+            playSelector.classList.add('pause-button');
             createdPlayer.playAudio();
         } else {
             createdPlayer.inPlay = false;
