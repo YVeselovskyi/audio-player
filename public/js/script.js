@@ -192,3 +192,9 @@ function generateAll(songsArray) {
 requestSongs()
     .then((result) => generateAll(result))
     .catch((err) => console.log(err))
+
+function hideLoader(){
+    document.getElementsByClassName('preloader-bg')[0].classList.add('hidden-fade');
+}
+
+setTimeout(hideLoader , 2000);

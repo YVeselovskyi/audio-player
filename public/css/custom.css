@@ -118,7 +118,7 @@
     position: relative;
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
@@ -126,14 +126,14 @@
     position: relative;
     width: 6px;
     height: 15px;
-    background: rgb(63,81,181);
+    background: rgb(63, 81, 181);
     -webkit-animation: pulse 750ms infinite;
     animation: pulse 300ms infinite;
     -webkit-animation-delay: 250ms;
     animation-delay: 250ms;
     opacity: 0.5;
     right: -45px;
-     top: 2px; 
+    top: 2px;
     display: inline-block;
 }
 
@@ -144,7 +144,7 @@
     display: block;
     height: 16px;
     width: 6px;
-    background: rgb(63,81,181);
+    background: rgb(63, 81, 181);
     top: 50%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -164,12 +164,148 @@
 
 @-webkit-keyframes pulse {
     50% {
-        background: rgb(0,169,244);
+        background: rgb(0, 169, 244);
     }
 }
 
 @keyframes pulse {
     50% {
-        background: rgb(0,169,244)
+        background: rgb(0, 169, 244)
+    }
+}
+
+.hidden-fade{
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 1.7s, opacity 1.7s cubic-bezier(0.38, 0.04, 1, 1);
+}
+
+.preloader-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #080808;
+    z-index: 2;
+}
+
+.preloader {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    color: #fff;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.preloader span {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: #2fac9b;
+    border-radius: 0px;
+}
+
+.preloader span:nth-child(1) {
+    -webkit-border-radius: 0;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 0;
+    -moz-background-clip: padding;
+    border-radius: 0;
+    background-clip: padding-box;
+    border-radius: 500px;
+    -webkit-animation: scale 1s 0.1s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    animation: scale 1s 0.1s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.preloader span:nth-child(2) {
+    -webkit-border-radius: 0;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 0;
+    -moz-background-clip: padding;
+    border-radius: 0;
+    background-clip: padding-box;
+    border-radius: 500px;
+    -webkit-animation: scale 1s 0.2s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    animation: scale 1s 0.2s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.preloader span:nth-child(3) {
+    -webkit-border-radius: 0;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 0;
+    -moz-background-clip: padding;
+    border-radius: 0;
+    background-clip: padding-box;
+    border-radius: 500px;
+    -webkit-animation: scale 1s 0.3s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    animation: scale 1s 0.3s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.preloader span:nth-child(4) {
+    -webkit-border-radius: 0;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 0;
+    -moz-background-clip: padding;
+    border-radius: 0;
+    background-clip: padding-box;
+    border-radius: 500px;
+    -webkit-animation: scale 1s 0.4s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    animation: scale 1s 0.4s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.preloader span:nth-child(5) {
+    -webkit-border-radius: 0;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 0;
+    -moz-background-clip: padding;
+    border-radius: 0;
+    background-clip: padding-box;
+    border-radius: 500px;
+    -webkit-animation: scale 1s 0.5s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    animation: scale 1s 0.5s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+@-webkit-keyframes scale {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    25% {
+        -webkit-transform: scale(0.9, 0.9);
+        transform: scale(0.9, 0.9);
+        background: #93e1d7;
+    }
+    50% {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+        margin: 0 3px;
+        background: #2fac9b;
+    }
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+}
+
+@keyframes scale {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    25% {
+        -webkit-transform: scale(0.9, 0.9);
+        transform: scale(0.9, 0.9);
+        background: #93e1d7;
+    }
+    50% {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+        margin: 0 3px;
+        background: #2fac9b;
+    }
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
     }
 }
