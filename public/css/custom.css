@@ -1,6 +1,7 @@
 .demo-blog .prev-button,
 .demo-blog .play-button,
-.demo-blog .next-button {
+.demo-blog .next-button,
+.demo-blog .pause-button {
     width: 44px;
     height: 44px;
     background-position: center;
@@ -12,15 +13,19 @@
 }
 
 .demo-blog .prev-button {
-    background-image: url(img/prev.svg);
+    background-image: url(/img/prev.svg);
 }
 
 .demo-blog .play-button {
-    background-image: url(img/play.svg);
+    background-image: url(/img/play.svg);
+}
+
+.demo-blog .pause-button {
+    background-image: url(/img/pause.svg);
 }
 
 .demo-blog .next-button {
-    background-image: url(img/next.svg);
+    background-image: url(/img/next.svg);
 }
 
 .demo-blog .meta > * {
@@ -98,7 +103,7 @@
     background: none;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url(img/volume.svg);
+    background-image: url(/img/volume.svg);
     position: absolute;
     left: -5px;
 }

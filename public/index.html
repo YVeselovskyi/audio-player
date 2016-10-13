@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="description" content="Simple audio player">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Audio Player</title>
     <!-- Add to homescreen for Chrome on Android -->
@@ -22,8 +22,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-deep_purple.min.css" />
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
 </head>
 
 <body>
@@ -32,14 +32,15 @@
             <div class="demo-blog__posts mdl-grid">
                 <div class="mdl-card coffee-pic mdl-cell mdl-cell--8-col">
                     <div class="mdl-card__media mdl-color-text--grey-50">
+                        <audio id="current" src="songs/TheNeighbourhood-How.mp3" autobuffer autoloop loop></audio>
                         <h3><a href="#" id="song-author">Placebo</a></h3>
                         <h3><a href="#" id="song-name">Every you and Every me</a></h3>
                     </div>
                     <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
                         <div>
-                            <div class="prev-button"></div>
-                            <div class="play-button"></div>
-                            <div class="next-button"></div>
+                            <div class="prev-button" id="prev"></div>
+                            <div class="play-button" id="play"></div>
+                            <div class="next-button" id="next"></div>
                             <div class="progress">
                                 <div id="p1" class="mdl-progress mdl-js-progress"></div>
                             </div>
@@ -87,7 +88,7 @@
         <div class="mdl-layout__obfuscator"></div>
     </div>
     <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
     <script>
     document.querySelector('#p1').addEventListener('mdl-componentupgraded', function() {
         this.MaterialProgress.setProgress(44);

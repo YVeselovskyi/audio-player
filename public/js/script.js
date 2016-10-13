@@ -2,9 +2,10 @@ const audioSong = document.getElementById('current');
 const nextSong = document.getElementById('next');
 const prevSong = document.getElementById('prev');
 const play = document.getElementById('play');
-const pause = document.getElementById('pause');
+const playSelector = document.getElementsByClassName('play-button')[0];
 const time = document.getElementsByClassName('time')[0];
-const currentSong = document.getElementsByClassName('now-playing')[0];
+const songAuthor = document.getElementById('song-author');
+const songName = document.getElementById('song-name');
 
 const helpers = {
 
@@ -24,7 +25,7 @@ const helpers = {
 
     formatSource: function(elem) {
         elem = elem.split('/');
-        elem = elem[elem.length - 1];
+        elem = elem[elem.length - 1].slice(0, -4);
         return elem;
     }
 
@@ -36,11 +37,11 @@ class Player {
     constructor(audio, sources) {
         this.audio = audio;
         this.sources = sources;
+        this.inPlay = false;
     }
 
     playAudio() {
         this.audio.play();
-        currentSong.innerHTML = this.audio.src;
     }
 
     pauseAudio() {
@@ -72,38 +73,32 @@ class Player {
 
 }
 
-const createdPlayer = new Player(audioSong, ['TheNeighbourhood.mp3', 'Blame.mp3']);
+const createdPlayer = new Player(audioSong, ['TheNeighbourhood-How.mp3', 'Diplo&ZedsDead-Blame.mp3']);
 
 nextSong.addEventListener('click', () => {
-    createdPlayer.audio.currentTime = 0;
     createdPlayer.nextTrack();
 });
 
 prevSong.addEventListener('click', () => {
-    createdPlayer.audio.currentTime = 0;
     createdPlayer.prevTrack();
 });
 
 play.addEventListener('click', () => {
-    createdPlayer.playAudio();
-});
-pause.addEventListener('click', () => {
-    createdPlayer.pauseAudio();
-});
-
-setInterval(() => createdPlayer.showTime(), 40);
-
-
-Array.prototype.forEach.call(document.querySelectorAll('.mdl-card__media'), function(el) {
-    var link = el.querySelector('a');
-    if (!link) {
-        return;
+    songAuthor.innerHTML =  helpers.formatSource(createdPlayer.audio.src).split('-')[0];
+    songName.innerHTML =  helpers.formatSource(createdPlayer.audio.src).split('-')[1];
+    if (createdPlayer.inPlay == false) {
+        createdPlayer.inPlay = true;
+        playSelector.classList.remove('play-button');
+        playSelector.classList.add('pause-button')
+        createdPlayer.playAudio();
+    } else {
+        createdPlayer.inPlay = false;
+        playSelector.classList.remove('pause-button');
+        playSelector.classList.add('play-button')
+        createdPlayer.pauseAudio();
     }
-    var target = link.getAttribute('href');
-    if (!target) {
-        return;
-    }
-    el.addEventListener('click', function() {
-        location.href = target;
-    });
+
 });
+
+
+setInterval(() => createdPlayer.showTime(), 1000);
