@@ -120,7 +120,12 @@ function generateAll(songsArray) {
         showTime() {
             let timeStamp = this.audio.currentTime;
             time.innerHTML = helpers.formatTime(Math.ceil(timeStamp));
-            leftTime.innerHTML = helpers.formatTime(Math.ceil(this.audio.duration));
+            if(this.audio.duration){
+                leftTime.innerHTML = helpers.formatTime(Math.ceil(this.audio.duration));
+            } else {
+                leftTime.innerHTML = '-4:20';
+            }
+
             this.currentValue = 100 * this.audio.currentTime / this.audio.duration;
             progress.value = this.currentValue;
             document.getElementsByClassName('mdl-slider__background-lower')[0].style.flex = `0.01 1 ${this.currentValue}%`;
